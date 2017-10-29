@@ -1,1 +1,2 @@
 click>=5.1
+libpagure
