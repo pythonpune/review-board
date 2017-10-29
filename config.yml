@@ -1,0 +1,9 @@
+github: 
+    - https://github.com/
+    usernames: 
+        - sopanshewale
+        - bhavin192
+
+plugins: 
+    - github
+    - pargure   
