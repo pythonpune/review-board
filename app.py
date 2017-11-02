@@ -2,6 +2,7 @@
 import yaml
 import click
 from  plugins.pagure import  get_pull_requests
+from plugins.github import get_pull_requests_github
 
 
 @click.command()
@@ -19,11 +20,17 @@ def execute_board(site,  username, repo):
 
     # Expect site, username and repo comming from command line 
     #data = get_pull_requests('walters', 'fedora-atomic')
-    data = get_pull_requests(username, repo)
-    print (data)
-   
-
-
+    if  site == 'github':
+        try:
+            data = get_pull_requests_github(username,repo)
+            for i in data:
+                print(i)
+        except:
+            print("Error Occured")
+    else:		
+        data = get_pull_requests(username, repo)
+        for i in data:
+            print (i)
 
 def getComments(site, username):
      pass
