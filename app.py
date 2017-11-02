@@ -3,6 +3,8 @@ import yaml
 import click
 from pprint import pprint
 import sys
+import utils
+
 from plugins import github, gerrit, gitlab, pagure
 
 plugins = {
@@ -11,6 +13,7 @@ plugins = {
     "gitlab": gitlab.get_pull_requests
 }
 
+@utils.safe_error_decorator
 @click.command()
 @click.option('--site', default='config', help='Please enter the sitename to list activity, e.g. github')
 @click.option('--username', default='config', help='Please enter username to list activity, e.g. HariSadu')
