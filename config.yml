@@ -6,4 +6,8 @@ github:
 
 plugins: 
     - github
-    - pargure   
+    - pargure	
+    - gerrit	
+    - gitlab    
+
+   
