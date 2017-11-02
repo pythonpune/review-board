@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 import yaml
 import click
-from  plugins.pagure import  get_pull_requests
+from pprint import pprint
+import sys
+from plugins import github, gerrit, gitlab, pagure
 
+plugins = {
+    "github": github.get_pull_requests,
+    "pagure": pagure.get_pull_requests,
+    "gitlab": gitlab.get_pull_requests
+}
 
 @click.command()
 @click.option('--site', default='config', help='Please enter the sitename to list activity, e.g. github')
@@ -35,4 +42,4 @@ def getPR(site, username):
 if __name__ == '__main__':
     click.echo("Welcome to Code Review System\n")
     execute_board()
-
+    sys.exit(0)
