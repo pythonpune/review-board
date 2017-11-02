@@ -34,8 +34,5 @@ def getPR(site, username):
 
 if __name__ == '__main__':
     click.echo("Welcome to Code Review System\n")
-    try:
-        execute_board()
-    except yaml.YAMLError as exc:
-        print(exc)
+    execute_board()
 
