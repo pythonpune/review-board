@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+from pygments.lexers.factor import FactorLexer
 import yaml
 import click
-from  plugins.pagure import  get_pull_requests
+from plugins import github, gitlab, gerrit, pagure
+from plugins.pagure import get_pull_requests
 
 
 @click.command()
@@ -12,10 +14,29 @@ def execute_board(site,  username, repo):
     '''Take Arguments from command line OR Read configuration files, which is YAML format'''
     #print (site)
     #print (username) 
-    if site == 'config'  and username == 'config' and repo == 'config':
-          print ("The Application will read username and code sites from configuraiton file")
-          with open('config.yml', 'r') as f:
-             conf = yaml.load(f)
+    if site == 'config' and username == 'config' and repo == 'config':
+        print ("The Application will read username and code sites from configuraiton file")
+        with open('config.yml', 'r') as f:
+
+            conf = yaml.load(f)
+            github_fun_bool = False
+            gitlab_fun_bool = False
+            pagure_fun_bool = False
+            bitbucket_fun_bool = False
+
+            if conf['github']['username'] != '' and conf['github']['repository'] != '':
+                github.get_pull_requests(conf['github']['username'], conf['github']['repository'])
+
+            if conf['gitlab']['username'] != '' and conf['gitlab']['repository'] != '':
+                gitlab.get_pull_requests(conf['gitlab']['username'], conf['gitlab']['repository'])
+
+            if conf['pagure']['username'] != '' and conf['pagure']['repository'] != '':
+                gitlab.get_pull_requests(conf['pagure']['username'], conf['pagure']['repository'])
+
+            # if conf['bitbucket']['username'] != '' and conf['bitbucket']['repository'] != '':
+            #     bitbucket.get_pull_requests(conf['bitbucket']['username'], conf['bitbucket']['repository'])
+
+            get_pull_requests(username, repo)
 
     # Expect site, username and repo comming from command line 
     #data = get_pull_requests('walters', 'fedora-atomic')
