@@ -50,3 +50,4 @@ if __name__ == '__main__':
     click.echo("Welcome to Code Review System\n")
     execute_board()
     sys.exit(0)
+
