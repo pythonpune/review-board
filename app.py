@@ -5,7 +5,7 @@ from  plugins.pagure import  get_pull_requests
 
 
 @click.command()
-@click.option('--site', default='config', help='Please enter the sitename to list activity, e.g. githjub')
+@click.option('--site', default='config', help='Please enter the sitename to list activity, e.g. github')
 @click.option('--username', default='config', help='Please enter username to list activity, e.g. HariSadu')
 @click.option('--repo', default='config', help='Please enter repository name to list activity, e.g. helloworld')
 def execute_board(site,  username, repo):
