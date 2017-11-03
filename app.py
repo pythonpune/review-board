@@ -19,10 +19,6 @@ def execute_board(site,  username, repo):
         with open('config.yml', 'r') as f:
 
             conf = yaml.load(f)
-            github_fun_bool = False
-            gitlab_fun_bool = False
-            pagure_fun_bool = False
-            bitbucket_fun_bool = False
 
             if conf['github']['username'] != '' and conf['github']['repository'] != '':
                 github.get_pull_requests(conf['github']['username'], conf['github']['repository'])
