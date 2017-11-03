@@ -1,9 +1,15 @@
-github: 
-    - https://github.com/
-    usernames: 
-        - sopanshewale
-        - bhavin192
+github:
+   username :
+   repository:  
 
-plugins: 
-    - github
-    - pargure   
+gitlab:
+   username:
+   repository:
+
+pagure:
+   username:
+   repository:
+
+bitbucket:
+   username:
+   repository:
