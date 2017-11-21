@@ -1,5 +1,6 @@
 import requests
 import json
+
 list_of_pull_requests=[]
 def get_pull_requests(username,repository):
     r=requests.get("https://api.github.com/repos/"+username+"/"+repository+"/pulls")
