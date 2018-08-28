@@ -10,7 +10,7 @@ from plugins import pagure
 plugins = {
     "github": github.get_pull_requests,
     "pagure": pagure.get_pull_requests,
-    # "gitlab": gitlab.get_pull_requests
+    "gitlab": gitlab.get_merge_requests
 }
 
 @click.command()
