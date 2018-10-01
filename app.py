@@ -2,7 +2,6 @@
 import yaml
 import click
 from pprint import pprint
-
 from plugins import github
 from plugins import gitlab
 from plugins import pagure
